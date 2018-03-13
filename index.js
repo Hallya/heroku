@@ -1,9 +1,10 @@
 const express = require('express');
-const front = require('./heroku-front-app/public/index.html')
 const app = express();
 
+app.use('/', express.static(__dirname + '/heroku-front-app/build'))
+
 app.get('*', (req, res) => {
-  res.send(front);
+  res.send('coucou la demo');
 })
 
 const port = process.env.PORT || 3000;
